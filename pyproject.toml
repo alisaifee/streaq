@@ -63,6 +63,9 @@ dependencies = [
 ]
 dynamic = ["version"]
 
+[tool.uv.sources]
+coredis = { git="https://github.com/alisaifee/coredis", branch="master" }
+
 [project.optional-dependencies]
 web = [
     "fastapi>=0.117.1",

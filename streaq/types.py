@@ -21,7 +21,7 @@ from coredis.commands.request import CommandRequest
 from coredis.response._callbacks.streams import MultiStreamRangeCallback
 from coredis.response._utils import flat_pairs_to_ordered_dict
 from coredis.response.types import StreamEntry
-from coredis.typing import KeyT, RedisValueT, ResponseType
+from coredis.typing import KeyT, RedisValueT
 from typing_extensions import TypeIs, TypeVarTuple
 
 if TYPE_CHECKING:
@@ -168,7 +168,7 @@ class TaskDecorator(Protocol):
 class ReadStreamsCallback(MultiStreamRangeCallback[str]):
     def transform(
         self,
-        response: ResponseType,
+        response: Any,
     ) -> dict[str, tuple[StreamEntry, ...]] | None:
         if not response:
             return None

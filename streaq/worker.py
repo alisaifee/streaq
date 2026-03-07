@@ -210,7 +210,7 @@ class Worker(AsyncContextManagerMixin, Generic[C]):
     def __init__(
         self,
         redis_url: str = "redis://localhost:6379",
-        redis_pool: ConnectionPool | None = None,
+        redis_pool: ConnectionPool[Any] | ClusterConnectionPool | None = None,
         redis_kwargs: dict[str, Any] | None = None,
         concurrency: int = 16,
         sync_concurrency: int | None = None,
